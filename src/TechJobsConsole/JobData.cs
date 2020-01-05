@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -49,8 +50,11 @@ namespace TechJobsConsole
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
+                //string val = value;
+                //if (value.Equals(val, StringComparison.InvariantCultureIgnoreCase)) ;
+                //value.Equals(value, StringComparison.OrdinalIgnoreCase);
 
-                if (aValue.Contains(value))
+                if (aValue.ToUpper().Contains(value.ToUpper()))
                 {
                     jobs.Add(row);
                 }
@@ -82,8 +86,9 @@ namespace TechJobsConsole
                         }
                     }
 
-                    //List<Dictionary<string, string>> name = new List<Dictionary<string, string>>(FindByColumnAndValue(key, value));
-                    //jobsByValue.AddRange(FindByColumnAndValue(key, value));  //name?
+                    
+                    //jobsByValue.AddRange(FindByColumnAndValue(key, value));  //code before needing to limit dict printing
+                    //if a search term is listed more than once within a dict
                 }
             }
 

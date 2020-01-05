@@ -122,10 +122,12 @@ namespace TechJobsConsole
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
             //Console.WriteLine("printJobs is not implemented yet");
-            
-            foreach (Dictionary<string, string> dictionary in someJobs)
+
+
+            if (someJobs.Any())
+                //or if (someJobs.Count > 0)
             {
-                if (someJobs.Any())
+                foreach (Dictionary<string, string> dictionary in someJobs)
                 {
                     Console.WriteLine("\n*****");
                     foreach (KeyValuePair<string, string> kvp in dictionary)
@@ -133,13 +135,11 @@ namespace TechJobsConsole
                         Console.WriteLine(kvp.Key + ": " + kvp.Value);
                     }
                     Console.WriteLine("*****");
-                    
                 }
-                else
-                {
-                    Console.WriteLine("There are no results");
-                }
-                    
+            }
+            else
+            {
+                Console.WriteLine("There are no results");
             }
 
         }
